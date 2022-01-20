@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Set timeout y setINterval</h1>
+    <script>
+        console.log("inicio");
+        /* setTimeout(()=>{
+            console.log("ejecutando un settiemout, esto se ejecuta una sola vez")
+        },5000)
+
+        setInterval(()=>{
+            console.log("ejecutando un setinterval, esto se ejecuta indefinidamente cada cierto intervalo de tiempo")
+        },1000) */
+
+        /* setInterval(()=>{
+            console.log(new Date().toLocaleTimeString())
+        },1000) */
+        
+        /* let temporizador = setTimeout(()=>{
+            console.log(new Date().toLocaleTimeString())
+        },1000)
+
+        clearTimeout(temporizador);
+        console.log("despues del clear"); */
+
+        let temporizador = setInterval(()=>{
+            console.log(new Date().toLocaleTimeString())
+        },1000)
+
+        clearInterval(temporizador);
+        console.log("despues del clearTimeout");
+
+    </script>
+</body>
+</html>

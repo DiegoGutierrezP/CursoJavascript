@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos JS</title>
+</head>
+<body>
+    <h1>Fundamentos JavaScript</h1>
+    <script>
+        var hola = "Hola Mundo";//ambito global
+        let hello = "hello world";//ambito de bloque
+        console.log(hola);
+        console.log(hello);
+
+        console.log(window);
+
+        console.log('*********var**********')
+        
+        var musica = 'rock';
+        console.log("variable musica antes del bloque ",musica);
+
+        //bloque en javascript
+        {
+            var musica ="pop";
+            console.log("variable musica antes del bloque ",musica);
+        }
+
+        console.log("variable musica despues del bloque ",musica);
+
+        console.log('*********let**********')
+
+        let musica2 = 'rock';
+        console.log("variable musica antes del bloque ",musica2);
+
+        //bloque en javascript
+        {
+            let musica2 ="pop";
+            console.log("variable musica antes del bloque ",musica2);
+        }
+
+        console.log("variable musica despues del bloque ",musica2);
+
+        console.log('*********const**********')
+
+        const PI = 3.1416;
+        console.log(PI);
+
+        //const NUEVE;//NO SE PUEDE TENER CONSSTANTES VACIAS
+        //las constantes no se pueden cambiar si son primitivas, pero si, sin son compuestos
+
+        const objeto = {
+            edad:21,
+            nombre:"Diego"
+        }
+
+        const colores =['azul','negro','rojo']
+
+        console.log(objeto)
+        console.log(colores)
+
+        objeto.correo = 'diego@gmail.com';
+        console.log(objeto)
+
+        colores.push('anaranjado');
+        console.log(colores)
+
+        console.log('*********cadenas de texto**********')
+
+        let nombre = "Jon";
+        let apellido = "Gutierrez";
+        let saludo = new String("Hola mundo");
+        let lorem = '  lorem10 asdasd ddsa wwqweq   '      
+
+        console.log(nombre,apellido,saludo)
+        console.log(
+            nombre.length,
+            apellido.length,
+            saludo.length,
+            nombre.toUpperCase(),
+            apellido.toLowerCase(),
+            lorem.includes('ddsa'),
+            lorem.trim()
+        )
+
+        console.log('*********concatenacion string**********')
+        //concatenacion
+
+        let a = "juan";
+        let b ="perrez";
+
+        //concatenacion
+        console.log(a+" " + b);
+        //interpolacion de variables 
+        //template string ``
+        let c = `hola soy ${a} ${b}`;
+        console.log(c);
+
+        console.log('*********numbers**********')
+
+        {
+            let a = 2;
+            let b = new Number(1);
+            let c = 7.19;
+
+            console.log(a,b);
+            console.log(c.toFixed(1));
+            console.log(parseInt(c));
+        }
+
+        console.log('*********undefined,null,NaN**********')
+
+        let indefinida;
+        console.log(indefinida);
+
+        let nulo = null;
+        console.log(nulo);
+
+        let noEsNumero = "hola"*3.7;
+        console.log(noEsNumero);
+
+    </script>
+</body>
+</html>

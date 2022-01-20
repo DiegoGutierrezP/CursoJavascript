@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Callbacks</h1>
+
+    <script>
+
+        /* 
+        Un callback explicado como analogía sería:
+        Supongamos que nos encontramos hablando por teléfono. Al estar hablando 
+        nos surge una situación por resolver de manera inmediata. Ponemos la llamada en 
+        espera, realizamos lo que tenemos que hacer y cuando terminamos, volvemos a la 
+        llamada que dejamos en espera.
+        Un callback es una función que será ejecutada cuando una operación asíncrona se
+         haya completado. En el caso de la analogía, seria esa situación urgente, y cuando este 
+         hecho, ejecutará el callback.
+        */
+
+        function cuadradoCallback(value,callback){
+            setTimeout(()=>{
+                callback(value,value*value);
+            },0|Math.random()*1000);
+        }
+
+        cuadradoCallback(0,(value,result)=>{
+            console.log("inicia callback");
+            console.log(`callback: ${value}, ${result}`);
+            cuadradoCallback(1,(value,result)=>{
+                console.log(`callback: ${value}, ${result}`)
+                cuadradoCallback(2,(value,result)=>{
+                    console.log(`callback: ${value}, ${result}`)
+                    cuadradoCallback(3,(value,result)=>{
+                        console.log(`callback: ${value}, ${result}`)
+                        cuadradoCallback(5,(value,result)=>{
+                            console.log(`callback: ${value}, ${result}`)
+                        })
+                    })
+                })
+            })
+        })
+    </script>
+</body>
+</html>

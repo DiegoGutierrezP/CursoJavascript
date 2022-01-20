@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Operador Cortocircuito</h1>
+    <script>
+        /* 
+        Cortocircuito OR - cuando el valor de la izquierda en la expresion
+        siempre pueda valida true, es el valor que se cargara por defecto.
+
+        Cortocircuito AND - cuando el valor de la izquierda en la expresion
+        siempre pueda validar a false , es el valor que se cargara por defecto
+        */
+
+        /* function saludar(nombre="Desconocido"){
+            console.log(`Hola ${nombre}`)
+        } */
+
+        function saludar(nombre){
+            nombre = nombre || "Desconocido";
+            console.log(`Hola ${nombre}`)
+        }
+
+        console.log();
+
+        saludar("bruno");
+        saludar();
+        console.log("*****OR******")
+        console.log("cadena" || "derecha");
+        console.log(19 || "derecha");
+        console.log({} || "derecha");
+        console.log([] || "derecha");
+        console.log(false || "derecha");
+        console.log(null || "derecha");
+        console.log(0 || "derecha");
+        console.log(-2 || "derecha");
+
+        console.log("*****AND******")
+
+        console.log("cadena" && "derecha");
+        console.log(19 && "derecha");
+        console.log({} && "derecha");
+        console.log([] && "derecha");
+        console.log(false && "derecha");
+        console.log(null && "derecha");
+        console.log(0 && "derecha");
+        console.log(-2 && "derecha");
+
+        //ALERT , CONFIRM , PROMPT
+        console.log();
+        console.log("************ALERT, CONFIRM , PROMPT********************")
+
+        //window.alert("Ësto es una alerta");
+        //window.confirm("Confirma");
+        //window.prompt("Ingrese valor");
+
+        let alerta = window.alert("Ësto es una alerta");
+        let confirmacion = window.confirm("Confirma");
+        let aviso = window.prompt("Ingrese valor");
+
+        console.log(alerta);
+        console.log(confirmacion);
+        console.log(aviso);
+
+    </script>
+</body>
+</html>

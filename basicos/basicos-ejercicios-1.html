@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ejercicios JS 1</h1>
+
+    <script>
+        /* 
+        
+        1) Programa una función que cuente el número de caracteres de una 
+        cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
+        2) Programa una función que te devuelva el texto recortado 
+        según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+        3) Programa una función que dada una String te devuelva un 
+        Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') 
+        devolverá ['hola', 'que', 'tal'].
+        4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá 
+        Hola Mundo Hola Mundo Hola Mundo.
+        */
+
+        /* Ejercicio 1 */
+
+        const cuentaCaracteres = (cadena) =>{
+            if(typeof(cadena) == 'string'){
+               return `la cadena ${cadena} tiene ${cadena.length} caracteres`; 
+            }else{
+                return "Esto no es una cadena";
+            }
+            
+        }
+        console.log(cuentaCaracteres("sdads"));
+
+        /* Ejercicio 2 */
+
+        /* const recortaTexto = (cadena,n)=>{
+            if(typeof(cadena) == 'string'){
+                return cadena.substr(0,n);
+            }else{
+                return "Esto no es una cadena";
+            }
+            
+        }
+        console.log(recortaTexto("dadw eewqeqe",7)); */
+
+        const recortaTexto = (cadena="",longitud=undefined)=>{
+            (!cadena)
+            ?console.warn("No ingresaste una cadena de texto")
+            :(longitud === undefined)
+                ?console.warn("No ingresaste la longitud para recoratr texto")
+                :console.info(cadena.slice(0,longitud));
+        } 
+
+        recortaTexto("dsada",3);
+
+        /* Ejercicio 3 */
+
+        function separaTextos(cadena,separador){
+            let arrayCadenas = cadena.split(" ");
+            let otrocadena = "";
+            for(let i=0; i<arrayCadenas.length ; i++){
+                if(arrayCadenas[i] == arrayCadenas[arrayCadenas.length - 1]){
+                    otrocadena += arrayCadenas[i];
+                }else{
+                   otrocadena += arrayCadenas[i] + separador;  
+                }
+                
+            }
+
+            return otrocadena;
+            
+        }
+
+        //console.log("dasd dsada dasd dsadad".split(''));
+        console.log(separaTextos("diego gutierrez pineda","-"));
+
+        /* Ejercicio 4 */
+
+        const repiteTexto = (cadena,n)=>{
+            let nuevaCadena ="";
+            for(let i=0;i<n;i++){
+                nuevaCadena += cadena + " ";
+            }
+            return nuevaCadena;
+        }
+
+        console.log(repiteTexto("fa",4));
+
+        /* 
+        5) Programa una función que invierta las palabras de una cadena de 
+        texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+        6) Programa una función para contar el número de veces que se 
+        repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") 
+        devolverá 2.
+        7) Programa una función que valide si una palabra o frase dada, es un 
+        palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+        8) Programa una función que elimine cierto patrón de caracteres de un texto 
+        dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+        */
+
+        /* Ejercicio 5 */
+        const inviertePalabras = (cadena="") =>{
+            (!cadena)? console.warn("Ingrese una cadena de texto")
+            : console.log(cadena.split('').reverse().join(""));
+        }
+
+        inviertePalabras("hola mundo");
+
+        /* Ejercicio 6 */
+
+        /* const cuantoRepite = (cadena,repite) => {
+            let array = cadena.split(' ');
+            let cont =0;
+            for(let i=0;i<array.length;i++){
+                if(repite === array[i]){
+                    cont++;
+                }
+            }
+            console.log(cont);
+        }
+
+        cuantoRepite("diego uno diego diego",'diego'); */
+
+        const cuantoRepite = (cadena="",texto="")=>{
+            if(!cadena) return console.warn("No ingresaste el texto");
+            if(!texto) return console.warn("No ingresaste la palabra a evaluar");
+
+            let i=0, contador =0;
+
+            while(i!==-1){
+                i= cadena.indexOf(texto,i);
+                if(i!==-1){
+                    i++;
+                    contador++;
+                }
+            }
+            return console.info(`la palabra ${texto} se repite ${contador} veces`);
+        }
+
+        cuantoRepite("diego uno diego diego",'diego')
+
+        /* Ejercico 7 */
+
+        const palindromo = (cadena) => 
+        {
+            if(!cadena){
+                console.warm("Ingrese una cadena de texto")
+            }else{
+                cadena = cadena.toLowerCase();
+                let pali = cadena.split('').reverse().join('');
+                (pali === cadena)
+                ?console.log(`la palabra ${cadena} es palindromo`)
+                :console.log('no es palindromo')
+            }
+        
+        }
+
+        palindromo('salas');
+
+        /* ejercicio 8 */
+
+        /* const eliminaCaracteres = (cadena,caracteres) =>{
+            let a = cadena.split('');
+            let b = caracteres.split('');
+            
+            //let nuevaCadena = a;
+            for(let i=0; i<b.length; i++){
+                for(let j=0; j<a.length;j++){
+                    if(b[i]===a[j]){
+                        a.splice(j,1);
+                        //break;
+                    }
+                }
+            }
+
+            console.log(a.join(''));
+        } */
+
+        const eliminaCaracteres = (texto="",patron="") => {
+            (!texto)
+            ?console.warn("No ingresaste un texto")
+            :(!patron)
+            ?console.warn("No ingresaste un patron de caracteres")
+            :console.info(texto.replace(new RegExp(patron,"ig"),""));
+        }
+
+        eliminaCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
+
+        /* 
+        9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
+        10) Programa una función que reciba un número y evalúe si es capicúa o 
+        no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+        11) Programa una función que calcule el factorial de un número (El factorial de un 
+        entero positivo n, se define como el producto de todos los números enteros positivos desde 
+        1 hasta n), pe. miFuncion(5) devolverá 120.
+        */
+
+        /* ejercicio 9 */
+
+        const numeroAleatorio = () => console.info(Math.round(Math.random()*(601-500)+500))
+
+        numeroAleatorio();
+
+        /* Ejercicio 10 */
+
+        const capicua = (numero) => {
+            let cadena  = numero.toString();
+            let cadena2 = cadena.split('').reverse().join('');
+
+            if(cadena === cadena2){
+                console.log(`El numero ${numero} es capicua`)
+            }else{
+                console.log('no es capicua');
+            }
+        }
+
+        capicua(767);
+
+        /* Ejercicio 11 */
+
+        const factorial = (n) => {
+            if(n===1){
+                console.log(1);
+            }else{
+                let i =2;
+                let fac = 1;
+                do{
+                    fac *= i;
+                    i++;
+                }while(i <= n);
+
+                console.log(fac);
+            }
+        }
+        factorial(4);
+
+        /* 
+        12) Programa una función que determine si un número es primo
+         (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+        13) Programa una función que determine si un número es par o impar, pe. 
+        miFuncion(29) devolverá Impar.
+        14) Programa una función para convertir grados Celsius a Fahrenheit y 
+        viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+        */
+
+        /* Ejercicoo 12 */
+        const esPrimo = (numero)=>{
+            if (numero == 0 || numero == 1 || numero == 4) return false;
+	        for (let x = 2; x < numero / 2; x++) {
+		        if (numero % x == 0) return false;
+	        }
+	        // Si no se pudo dividir por ninguno de los de arriba, sí es primo
+	        return true;
+        }
+
+        console.log(esPrimo(8));
+
+        /* Ejercicio 13 */
+        const esParoImpar = (n) => (n%2 == 0 )? 
+                                    console.log("El numero es par")
+                                    : console.log("El numero es impar")
+
+        esParoImpar(3);
+
+       /*  Ejercicio 14 */
+
+       const convierte = (valor,grados) => {
+            (grados == "C" )
+                ? console.log(((valor * (9/5)) + 32) + " F" )
+                : (grados == "F")
+                    ? console.log(((valor - 32) * 5/9) + "C" )
+                    :console.log("algo manda mal");
+       }
+
+       convierte(32,"F");
+
+       /* 
+       15) Programa una función para convertir números de base binaria a decimal y 
+       viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+        16) Programa una función que devuelva el monto final después de aplicar un descuento 
+        a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+        17) Programa una función que dada una fecha válida determine cuantos años han pasado 
+        hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+       */
+
+       /* Ejercicio 17 */
+
+       /* const aniosPasaron = (fecha) =>{
+            if(Object.prototype.toString.call(fecha) === '[object Date]'){
+                let pasaron = parseInt(new Date().getFullYear()) - parseInt(fecha.getFullYear());
+                console.log(pasaron);
+            }else{
+                console.log("Ingrese una fecha vlaida");
+            }
+            
+       }
+
+       console.log(new Date().getFullYear())
+       aniosPasaron(new Date(1990,4,23)); */
+
+       const calcularAnios = (fecha = undefined) => {
+           if(fecha===undefined) return console.warn("Ingrese una fehca");
+           if(!(fecha instanceof Date )) return console.error("El valor que ingresaste no es una fecha valida");
+
+           let hoyMenosFecha = new Date().getTime() - fecha.getTime();
+           let aniosEnMS = 1000 * 60  * 60 * 24 * 365 ;
+           let aniosHumanos = Math.floor(hoyMenosFecha / aniosEnMS);
+           
+           return (Math.sign(aniosHumanos) === -1 )
+            ? console.info(`Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}`)
+             : (Math.sign(aniosHumanos) === 1 )
+                ? console.info(`Han pasado ${Math.abs(aniosHumanos)} años desde ${fecha.getFullYear()}`)
+                :console.info(`Estamos en el año actual ${fecha.getFullYear()}`)
+       }
+
+       calcularAnios(new Date(2000,2,4));
+
+       /* 
+       27) Programa una clase llamada Pelicula.
+
+        La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la 
+        película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y 
+        calificación en IMBD.
+        - Todos los datos del objeto son obligatorios.
+        - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+            7 restantes números.
+        - Valida que el título no rebase los 100 caracteres.
+        - Valida que el director no rebase los 50 caracteres.
+        - Valida que el año de estreno sea un número entero de 4 dígitos.
+        - Valida que el país o paises sea introducidos en forma de arreglo.
+        - Valida que los géneros sean introducidos en forma de arreglo.
+        - Valida que los géneros introducidos esten dentro de los géneros 
+            aceptados*.
+        - Crea un método estático que devuelva los géneros aceptados*.
+        - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+            decimal de una posición.
+        - Crea un método que devuelva toda la ficha técnica de la película.
+        - Apartir de un arreglo con la información de 3 películas genera 3 
+            instancias de la clase de forma automatizada e imprime la ficha técnica 
+            de cada película.
+
+        * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, 
+        Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, 
+        Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+       */
+
+       class Pelicula{
+
+           constructor({id,titulo,director,estreno,paisOrigen,generos,calificacion}){
+                this.id = id;
+                this.titulo = titulo
+                this.director = director
+                this.estreno = estreno
+                this.paisOrigen = paisOrigen
+                this.generos = generos
+                this.calificacion = calificacion
+
+                this.validaIMDB(id);
+                this.validarTitulo(titulo);
+                this.validarDirector(director);
+                this.validaEstreno(estreno);
+                this.validarPais(paisOrigen);
+                this.validarGeneros(generos);
+                this.validaCalificacion(calificacion)
+           }
+           //atributo statico
+           static get listaGeneros(){
+               return ["Action","Adult","Adventure","Animation","Biography","Comedy","Crime",
+                                "Documentary","Drama"];
+           }
+           //metodo estatico
+           static generosAceptados(){
+               return console.info(`Los generos aceptados son: ${Pelicula.listaGeneros.join(",")} `)
+           }
+
+
+           validarCadena(propiedad,valor){
+               if(!valor)return console.warn(`${propiedad} "${valor}" esta vacio`)
+               if(typeof valor !== "string")return console.error(`${propiedad} "${valor}" ingresado no es una cadena de
+                texto`);
+                return true;
+            }
+            validarLongitudCadena(propiedad,valor,longitud){
+                if(valor.length > longitud) return console.error(`${propiedad}"${valor}" excede el numero 
+                acteres permitidos(${longitud})`);
+                return true
+            }
+            validarNumero(propiedad,valor){
+                if(!valor) return console.error(`${propiedad}"${valor}" esta vacio`);
+                if(typeof valor !== "number")return console.error(`${propiedad} "${valor}" ingresado no es un numero`);
+                return true
+            }
+            validarArreglo(propiedad,valor){
+                if(!valor) return console.error(`${propiedad}"${valor}" esta vacio`);
+                if(!(valor instanceof Array))return console.error(`${propiedad} "${valor}" ingresado no es un arreglo`);
+                if(valor.length === 0 ) return console.error(`${propiedad} "${valor}" no tiene datos`)
+
+                for(let cadena of valor){
+                    if(typeof cadena !== "string") return console.error(`El valor "${cadena }" ingresado , 
+                    no es una cadena de texto`);
+                }
+                return true;
+            }
+            //
+            validaIMDB(id){
+                if(this.validarCadena("IMDB id",id)){
+                    if(!(/^([a-z]){2}([0-9]){7}$/.test(id))){
+                        return console.error(`El IMDB ${id} no es valido`)
+                    }
+                }
+           }
+            validarTitulo(titulo){
+                if(this.validarCadena("Titulo",titulo)){
+                    this.validarLongitudCadena("Titulo",titulo,100)
+                }
+           }
+
+           validarDirector(director){
+                if(this.validarCadena("Director",director)){
+                    this.validarLongitudCadena("Director",director,50)
+                }
+           }
+           validaEstreno(estreno){
+                if(this.validarNumero("Año de estreno",estreno)){
+                    if(!(/^([0-9]){4}$/.test(estreno))){
+                        return console.error(`El añó de estreno ${estreno} no es vlaido`)
+                    }
+                }
+           }
+           validarPais(pais){
+               this.validarArreglo("Pais",pais);
+           }
+           validarGeneros(generos){
+               if(this.validarArreglo("Generos",generos)){
+                   for(let genero of generos){
+                       //console.log(genero,Pelicula.listaGeneros.includes(genero));
+                       if(!Pelicula.listaGeneros.includes(genero)){
+                           console.error(`Generos incorrectos "${generos.join(",")}"`)
+                           Pelicula.generosAceptados();
+                       }
+                   }
+               }
+           }
+           validaCalificacion(calificacion){
+                if(this.validarNumero("Año de estreno",calificacion)){
+                    return (calificacion <  0 || calificacion > 10 )
+                        ? console.error(`La calificaion tiene que estar en un rango de 0 y 10`)
+                        : this.calificacion = calificacion.toFixed(1);
+                }
+           }
+
+           fichaTecnica(){
+               console.info(`Titulo: "${this.titulo}"\n"${this.calificacion}"\n"${this.director}"\n"${this.estreno}"`)
+           }
+
+       }
+
+       Pelicula.generosAceptados();
+
+       const obj2 = new Pelicula({
+           id:"as1234567",
+           titulo:"dasda",
+           director:"diego",
+           estreno : 2021,
+           paisOrigen:["Peru","colombia"],
+           generos:["Action","risas","Comedy"],
+           calificacion: 7.899,
+       });
+
+
+       console.log(obj2);
+       obj2.fichaTecnica();
+
+    </script>
+</body>
+</html>

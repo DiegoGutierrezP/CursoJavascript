@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Destructuracion JS</h1>
+    <script>
+
+        let numeros = [1,2,3];
+
+        //sin destructuracion
+        let uno = numeros[0],
+            dos = numeros[1],
+            tres = numeros[2];
+
+        console.log(uno,dos,tres);
+
+        //con destructuracion
+        const [one,two,tre] = numeros;
+        console.log(one,two,tre);
+
+        let persona = {
+            nombre:'Diego',
+            apellido:'Gutierrez',
+            edad:21
+        }
+
+        let {nombre,apellido,edad} = persona;//para q la destructuracion funcione las variables tiene q tener mismo nombre
+
+        console.log(nombre,apellido,edad);
+
+        console.log("***************objetos literales********************")
+
+        {
+            let nombre = "gaga",edad=7;
+
+            const perro = {
+                nombre: nombre,
+                edad:edad,
+                ladra:function(){
+                    console.log("guau guau");
+                }
+            }
+
+            console.log(perro);
+            perro.ladra();
+
+            //simplificado
+            const dog = {
+                nombre,
+                edad,
+                raza:"callejero",
+                ladrar(){
+                    console.log('ayayau');
+                }
+            }
+            console.log(dog);
+            dog.ladrar();
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Funcioones en JS</h1>
+    <script>
+        function estoEsUnaFuncion(){
+            console.log('Uno')
+            console.log('Dos')
+            console.log('Tres')
+        }
+
+        function unaFuncionQueDevuelveValor(){
+            return 'cadena de texto';
+        }
+
+        function saludar(nombre="desconocido",edad){
+            return `Hola ${nombre} tu edad es ${edad}`;
+        }
+
+        estoEsUnaFuncion();
+
+        console.log(unaFuncionQueDevuelveValor());
+
+        console.log(saludar("diego",21));
+
+        //funciones declaradas VS funciones expresadas
+         funcionDeclarada()
+        
+        function funcionDeclarada(){
+            console.log("Esto es una funcion decalrada puede invocarse en cualquier parte de nuestro codigo");
+        }
+
+        funcionDeclarada()
+
+        //funcion anonima
+
+        //funcionExpresada();//error
+
+        const funcionExpresada = function(){
+            console.log("Esto es una funcion expresada es decir , una funcion que se le ha asignado como valor a una variable.")
+        }
+
+        funcionExpresada();
+
+        console.log("******************Arrays************************");
+        const a =[];
+        const b = [1,true,'sda',['A','B','C']];
+
+        console.log(b.length);
+
+        const c =Array.of("X","Y","Z",9,8,7);
+        console.log(c);
+
+        const d = Array(100).fill(false);
+        console.log(d);
+
+        const colores =['rojo','verde','azul'];
+
+        colores.forEach(function(col,index){
+            console.log(`<li id='${index}'>${col}</li>`);
+        })
+
+        console.log("******************objetos************************");
+        {
+            let a = new String('hola');
+            console.log(a);
+            const b = {};
+            console.log(b);
+            const diego = {
+                nombre:'Diego',
+                apellido:'Gutierre',
+                edad:21,
+                pasatiempos:['jugar','progrmaar','correr'],
+                contacto:{
+                    email:'diego@gmail.com',
+                    telefono:'323144',
+                    facebook:'sdad'
+                },
+                saludar:function(){
+                    console.log('hola');
+                },
+                decirNombre:function(){
+                    console.log(`Hola me llamo ${this.nombre}`);
+                }
+            }
+            console.log(diego);
+            console.log(diego.pasatiempos);
+            diego.saludar();
+            diego.decirNombre();
+
+            console.log(Object.keys(diego));
+            console.log(Object.values(diego))
+
+            console.log(diego.hasOwnProperty("nombre"));
+
+        }
+
+    </script>
+</body>
+</html>

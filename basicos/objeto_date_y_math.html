@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Objeto date y math JS</h1>
+
+    <script>
+
+        console.log('****************OBJETO DATE************************')
+        console.log(Date());
+
+        let fecha =  new Date();
+        console.log(fecha);
+        //dia del mes
+        console.log(fecha.getDate());
+        //dia de la semana 
+        console.log(fecha.getDay());
+        //mes 0,1,2,3,4,...
+        console.log(fecha.getMonth());
+        //año
+        console.log(fecha.getFullYear());
+        //horas
+        console.log(fecha.getHours());
+        console.log(fecha.getMinutes());
+        console.log(fecha.getSeconds());
+        console.log(fecha.getMilliseconds());
+
+        console.log(fecha.toString());
+        console.log(fecha.toDateString());
+        console.log(fecha.toLocaleString());
+        console.log(fecha.toLocaleDateString());
+        console.log(fecha.toLocaleTimeString());
+        console.log(fecha.getTimezoneOffset());
+        console.log(fecha.getUTCDate());
+        console.log(fecha.getUTCHours());
+        console.log(Date.now());
+
+        let cumpleDiego = new Date(2000,6,5);
+        console.log(cumpleDiego);
+
+        console.log('****************OBJETO MATH************************')
+        
+        console.log(Math)
+        console.log(Math.PI)
+        console.log(Math.abs(-7.8));
+        console.log(Math.ceil(7.2));
+        console.log(Math.floor(7.8));
+        console.log(Math.round(7.5));
+        console.log(Math.sqrt(81));
+        console.log(Math.pow(2,5));
+        console.log(Math.sign(-7.8));//-1
+        console.log(Math.sign(6.9))//1
+
+        console.log(Math.random());
+        console.log(Math.round(Math.random()*1000));
+
+    </script>
+</body>
+</html>

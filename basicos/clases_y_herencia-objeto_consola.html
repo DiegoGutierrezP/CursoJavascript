@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Clases y Herencia JS</h1>
+
+    <script>
+
+        class Animal{
+            constructor(nombre,genero){
+                this.nombre = nombre;
+                this.genero = genero;
+            }
+
+            sonar(){
+                console.log("Hago sonidos porq estoy vivo");
+            }
+            saludar(){
+                console.log(`Hola soy ${this.nombre}`);
+            }
+        }
+
+        class Perro extends Animal{
+            constructor(nombre,genero,tamanio){
+                //con el super se manda a llamr el constructor de la clase padre
+                super(nombre,genero);
+                this.tamanio = tamanio;
+                this.raza = null;
+            }
+
+            sonar(){
+                console.log("Soy un perro y mi sonido es un ladrido")
+            }
+            ladrar(){
+                console.log("guau guau");
+            }
+
+            //un METODO ESTATICO se pueden ejecutar sin necesidad de instaciar la clase
+            static queEres(){
+                console.log("los perros somo animales mamiferos");
+            }
+
+            //los setters y getters son metodos especiales q nos permiten
+            //establecer y obtener los valores de atributos de nuestra clase
+            get getRaza(){
+                return this.raza;
+            }
+            set setRaza(raza){
+                this.raza = raza;
+            } 
+        }
+
+
+        const mimi =  new Animal('Mimi','Hembra');
+        const scooby =  new Perro('scooby','Macho',"Gigante");
+
+        console.log(mimi);
+        mimi.saludar();
+        mimi.sonar();
+        console.log(scooby);
+        scooby.saludar();
+        scooby.sonar();
+        scooby.ladrar();
+
+        //metodo statico
+        Perro.queEres();
+        //getter y setters
+        
+        console.log(scooby.getRaza);
+        scooby.setRaza='chihuahua';
+        console.log(scooby.getRaza);
+
+        //OBJETO CONSOLA
+        //-------------------------------------------------------------------------------------
+        console.log("************objeto console*************");
+        console.log(console);
+        console.error("Esto es un error");
+        console.warn("Esto es un aviso");
+        console.info("Informacion");
+
+        console.log(document);
+        console.log(window);
+        console.dir(window);
+        console.dir(document);
+        //------
+        console.group("Cursos");
+        console.log("curso 1");
+        console.log("curso 2");
+        console.log("curso 3");
+        console.groupEnd();
+        //------
+        console.table(Object.entries(console).sort());
+        //-----
+        const numeros = [1,2,3,4,5],
+        vocales = ["a","b","c"];
+
+        console.table(numeros);
+        console.table(vocales);
+        //------
+        console.time("Cuanto tiempo tarda mi codigo");
+        const arreglo = Array(100);
+
+        for(let i=0; i<arreglo.length; i++){
+            arreglo[i]= i;
+        }
+        console.timeEnd("Cuanto tiempo tarda mi codigo");
+        //-----
+        let x= 3, y=2 , pruebaXY = "Se espera que X sea menor que Y";
+        console.assert(x<y,{x,y,pruebaXY});
+
+
+    </script>
+</body>
+</html>
