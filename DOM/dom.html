@@ -12,6 +12,10 @@
             --yellow-color:#F7DF1E;
             --dark-color: #222;
         }
+        .cards{
+            border: thin solid var(--dark-color);
+            padding: 1rem;
+        }
         .card{
             display: inline-block;
             background-color: var(--dark-color);
@@ -97,6 +101,13 @@
             <figcaption>Nature</figcaption>
         </figure>
     </section>
+
+    <template id="template-card">
+        <figure class="card">
+            <img >
+            <figcaption></figcaption>
+        </figure>
+    </template>
 
     <script src="js/dom.js">
     </script>
