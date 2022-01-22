@@ -226,7 +226,7 @@ document.body.appendChild($ul3); */
 /* DOM: Templates HTML ***************************************************************** */
 //las etiquetas template no se renderizan en el DOM, se utiliza para generar estructuras dinamicamente
 
-const $cards = document.querySelector(".cards"),
+/* const $cards = document.querySelector(".cards"),
 $template = document.querySelector("#template-card").content,
 $fragment = document.createDocumentFragment(),
 cardContent = [
@@ -257,4 +257,79 @@ cardContent.forEach(el => {
     $fragment.appendChild($clone);
 });
 
-$cards.appendChild($fragment);
+$cards.appendChild($fragment); */
+
+/* DOM: Modificando Elementos (Old Style) ***************************************************************** */
+
+/* const $cards = document.querySelector(".cards"),
+$newCard = document.createElement("figure"),
+$cloneCards = $cards.cloneNode(true);//si quiero que clone todo su contenido es true
+
+$newCard.innerHTML = `<img src="https://placeimg.com/200/200/any" alt="Any">
+                        <figcaption>Any</figcaption>`;
+
+$newCard.classList.add("card");
+//$cards.replaceChild($newCard, $cards.children[2]);
+//$cards.insertBefore($newCard,$cards.firstElementChild);
+//$cards.removeChild($cards.lastElementChild);//eliminar
+document.body.appendChild($cloneCards); */
+
+/* DOM: Modificando Elementos (Cool Style) ***************************************************************** */
+
+/* 
+    .insertAdjacent...
+    .insertAdjacentElement(position,el)
+    .insertAdjacentHTML(position,html)
+    .insertAdjacentText(position,text)
+
+    Posiciones:
+    beforebegin(hermano anterior)
+    afterbegin(primer hijo)
+    beforeend(ultimo hijo)
+    afterend(hermano siguiente)
+*/
+
+/* const $cards = document.querySelector(".cards"),
+$newCard = document.createElement("figure");
+
+let $contentCard = `<img src="https://placeimg.com/200/200/any" alt="Any">
+                        <figcaption></figcaption>`;
+
+$newCard.classList.add("card");
+$newCard.insertAdjacentHTML('beforeend',$contentCard);
+$newCard.querySelector("figcaption").insertAdjacentText("afterbegin","Any");
+
+//$cards.insertAdjacentElement("beforebegin",$newCard)
+//$cards.insertAdjacentElement("afterbegin",$newCard)
+//$cards.insertAdjacentElement("afterend",$newCard)
+
+//$cards.prepend($newCard);//inserta como primer hijo
+//$cards.before($newCard)//inserta antes
+$cards.append($newCard) */
+
+/* DOM: Manejadores de Eventos ***************************************************************** */
+
+
+function holaMundo(){
+    alert('hola mundo');
+    console.log(event)
+}
+
+
+const $eventoSemantico = document.getElementById("evento-semantico");
+
+$eventoSemantico.onclick = holaMundo;//cuando es un evento semantico se iguala al nombre de la funcion sin los parentesis
+$eventoSemantico.onclick = (e) => {
+    alert("hola mundo manejador de eventos semanticos");
+    console.log(e);
+}
+
+const $eventoMultiple = document.getElementById("evento-multiple");
+
+$eventoMultiple.addEventListener("click",holaMundo);
+$eventoMultiple.addEventListener("click",(e)=>{
+    alert("manejador de eventos multiples");
+    console.log(e);
+    console.log(e.type);
+    console.log(e.target);
+});
