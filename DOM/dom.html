@@ -36,6 +36,21 @@
         .sepia{
             filter: sepia(1);
         }
+
+        .eventos-flujo div{
+            padding: 4rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+        .uno{
+            background: yellow;
+        }
+        .dos{
+            background: gold;
+        }
+        .tres{
+            background: lightyellow;
+        }
         
     </style>
 
@@ -118,7 +133,24 @@
     <button id="evento-semantico">Evento con Manejador Semantico</button>
     <br><br>
     <button id="evento-multiple">Evento con Manejador multiple</button>
+    <br><br>
+    <button id="evento-remover">Removiendo eventos con maejadores multiples</button>
+    <br><br><br><br>
 
+    <h4>Flujo de Eventos</h4>
+
+    <section class="eventos-flujo">
+        <div class="uno">
+            1
+            <div class="dos">
+                2
+                <div class="tres">
+                    3
+                    <a href="https://jonmircha.com" target="_blank" rel="noopener">jonmircha.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="js/dom.js">
     </script>

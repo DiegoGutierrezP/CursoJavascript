@@ -308,11 +308,15 @@ $newCard.querySelector("figcaption").insertAdjacentText("afterbegin","Any");
 $cards.append($newCard) */
 
 /* DOM: Manejadores de Eventos ***************************************************************** */
+/* DOM: Eventos con Parámetros y Remover Eventos ***************************************************************** */
 
-
-function holaMundo(){
+/* function holaMundo(){
     alert('hola mundo');
     console.log(event)
+}
+
+function saludar(nombre = "desconocido"){
+    alert(`Hola ${nombre} - ${event}`);
 }
 
 
@@ -333,3 +337,49 @@ $eventoMultiple.addEventListener("click",(e)=>{
     console.log(e.type);
     console.log(e.target);
 });
+
+$eventoMultiple.addEventListener('click',() => {//si necesito pasar parametros, lo envuelvo en una arrow function
+    saludar();
+    saludar("diego");
+});
+//remover eventos
+const removerDobleClick = (e)=>{
+    alert(`Removiendo el evento de tipo ${e.type}`);
+    console.log(e);
+    $eventoRemover.removeEventListener("dblclick",removerDobleClick);
+    $eventoRemover.disabled = true;
+}
+
+const $eventoRemover = document.getElementById("evento-remover");
+
+$eventoRemover.addEventListener('dblclick', removerDobleClick) */
+
+/* DOM: Flujo de Eventos (Burbuja y Captura) ***************************************************************** */
+/* DOM: stopPropagation & preventDefault ***************************************************************** */
+
+const $divEventos = document.querySelectorAll(".eventos-flujo div"),
+    $linkEventos = document.querySelector(".eventos-flujo a");
+
+
+function flujoEventos(e){
+    console.log(`Hola te saluda ${this.className}, el click lo origino ${e.target.className}`);
+
+    e.stopPropagation();//evita propagacion
+}
+
+$divEventos.forEach(div => {
+    //fase de burbuja, el flujo se propaga del interno al externo
+    div.addEventListener("click",flujoEventos,false);
+    //fase de captura, el flujo se propaga del externo al interno
+    //div.addEventListener("click",flujoEventos,true);
+    /* div.addEventListener("click",flujoEventos,{
+        capture: false,
+        once: true,//solo una vez se ejecuta
+    }) ;*/  
+});
+
+$linkEventos.addEventListener('click',(e)=>{
+    alert(`hola soy tu amigo y docente`);
+    e.preventDefault();
+    e.stopPropagation();
+})
