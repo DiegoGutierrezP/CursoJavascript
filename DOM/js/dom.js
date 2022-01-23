@@ -356,8 +356,9 @@ $eventoRemover.addEventListener('dblclick', removerDobleClick) */
 
 /* DOM: Flujo de Eventos (Burbuja y Captura) ***************************************************************** */
 /* DOM: stopPropagation & preventDefault ***************************************************************** */
+/* DOM: Delegación de Eventos  ***************************************************************** */
 
-const $divEventos = document.querySelectorAll(".eventos-flujo div"),
+/* const $divEventos = document.querySelectorAll(".eventos-flujo div"),
     $linkEventos = document.querySelector(".eventos-flujo a");
 
 
@@ -366,20 +367,66 @@ function flujoEventos(e){
 
     e.stopPropagation();//evita propagacion
 }
+//Delegacion de eventos
+document.addEventListener("click",(e)=>{
+    console.log("click en "+ e.target);
+    if(e.target.matches(".eventos-flujo div")){
+        flujoEventos(e);
+    }
 
-$divEventos.forEach(div => {
+    if(e.target.matches(".eventos-flujo a")){
+        alert(`hola soy tu amigo y docente`);
+    }
+}); */
+
+
+/* $divEventos.forEach(div => {
     //fase de burbuja, el flujo se propaga del interno al externo
-    div.addEventListener("click",flujoEventos,false);
+    div.addEventListener("click",flujoEventos);
     //fase de captura, el flujo se propaga del externo al interno
     //div.addEventListener("click",flujoEventos,true);
-    /* div.addEventListener("click",flujoEventos,{
-        capture: false,
-        once: true,//solo una vez se ejecuta
-    }) ;*/  
+    //div.addEventListener("click",flujoEventos,{
+     //   capture: false,
+    //    once: true,//solo una vez se ejecuta
+    //}) ;  
 });
 
 $linkEventos.addEventListener('click',(e)=>{
     alert(`hola soy tu amigo y docente`);
     e.preventDefault();
     e.stopPropagation();
+}) */
+
+/* BOM: Propiedades y Eventos  ***************************************************************** */
+window.addEventListener("resize", e =>{
+    console.clear();
+    console.log('********Evento Resize*****************');
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
+    console.log(window.outerWidth);
+    console.log(window.outerHeight);
+    
 })
+
+window.addEventListener("scroll", e =>{
+    console.clear();
+    console.log('********Evento Scroll*****************');
+    console.log(window.scrollX);
+    console.log(window.scrollY);
+})
+
+window.addEventListener('load', e => {
+
+    console.log('********Evento Load*****************');
+    console.log(window.screenX);
+    console.log(window.screenY);
+})
+
+//document.ready(function)
+document.addEventListener("DOMContentLoaded", e => {
+
+    console.log('********Evento DOMContentLoaded*****************');
+    console.log(window.screenX);
+    console.log(window.screenY);
+})
+
