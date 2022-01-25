@@ -398,7 +398,7 @@ $linkEventos.addEventListener('click',(e)=>{
 }) */
 
 /* BOM: Propiedades y Eventos  ***************************************************************** */
-window.addEventListener("resize", e =>{
+/* window.addEventListener("resize", e =>{
     console.clear();
     console.log('********Evento Resize*****************');
     console.log(window.innerWidth);
@@ -428,11 +428,11 @@ document.addEventListener("DOMContentLoaded", e => {
     console.log('********Evento DOMContentLoaded*****************');
     console.log(window.screenX);
     console.log(window.screenY);
-})
+}) */
 
 /* BOM: Métodos  ***************************************************************** */
 
-const $btnAbrir = document.getElementById("abrir-ventana"),
+/* const $btnAbrir = document.getElementById("abrir-ventana"),
 $btnCerrar = document.getElementById("cerrar-ventana"),
 $btnImprimir = document.getElementById("imprimir-ventana");
 
@@ -446,4 +446,37 @@ $btnCerrar.addEventListener('click',e => {
 });
 $btnImprimir.addEventListener('click',e => {
     window.print();//se manda imprimir
-});
+}); */
+
+/* BOM: Objetos: URL, Historial y Navegador  ***************************************************************** */
+
+/* console.log('**************Objeto URL (location)*******************');
+console.log(location);
+console.log(location.origin);
+console.log(location.protocol);
+console.log(location.host);
+console.log(location.hostname);
+console.log(location.port);
+console.log(location.href);
+console.log(location.hash);
+console.log(location.search);
+console.log(location.pathname); */
+//location.reload();
+
+/* console.log('**************Objeto Historial (history)*******************');
+console.log(history);
+console.log(history.length);
+history.forward(1);
+history.go(-3); */
+
+console.log('**************Objeto Navegador (navigator)*******************');
+console.log(navigator);
+console.log(navigator.connection);//da informacion de la conexion del ussurio
+console.log(navigator.geolocation);
+console.log(navigator.mediaDevices);//dispositivos, camaras microfonos
+console.log(navigator.mimeTypes);
+console.log(navigator.onLine);
+console.log(navigator.serviceWorker);
+console.log(navigator.storage);
+console.log(navigator.usb);
+console.log(navigator.userAgent);
