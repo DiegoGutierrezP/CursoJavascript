@@ -117,3 +117,29 @@ img{
     border-radius: 50%;
     background-color: var(--main-color);
 }
+/*****+* scroll butoon ********************/
+.scroll-top-btn{
+    position: fixed;
+    z-index:999;
+    bottom: 1vh;
+    right: calc(4.25rem + 1vw);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    font-weight: bold;
+    background-color: var(--main-color);
+    font-size: 2rem;
+    color: var(--second-color);
+    outline: 0;
+    border: 0;
+    transition: 0.3s all ease-out;
+    cursor: pointer;
+}
+.scroll-top-btn:hover{
+    background-color: var(--second-color);
+    color: var(--main-color);
+}
+.hidden{
+    visibility: hidden;
+    opacity: 0;
+}
