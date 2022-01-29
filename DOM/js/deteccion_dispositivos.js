@@ -16,7 +16,7 @@ export default function userDeviceInfo(id){
     isDesktop = {
         linux: ()=> ua.match(/linux/i),
         mac: ()=> ua.match(/mac os/i),
-        windows: ()=> ua.match(/windows nt/),
+        windows: ()=> ua.match(/windows nt/i),
         any: function(){//cualquier sistema operativo para desktop
             return (this.linux() || this.mac() || this.windows());
         }

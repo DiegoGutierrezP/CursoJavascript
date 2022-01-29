@@ -57,6 +57,7 @@ img{
     background: var(--second-modal-color);
     width: 100%;
     top: 0;
+    overflow-y: auto;
     bottom: 0;
     left: 0;
     right: 0;
@@ -90,7 +91,7 @@ img{
     text-align: center;
 }
 .menu a{
-    padding: 2rem;
+    padding: 1.3rem;
     width: inherit;
     display: block;
     font-size: 1.5rem;
