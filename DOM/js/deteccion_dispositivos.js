@@ -10,7 +10,7 @@ export default function userDeviceInfo(id){
         ios: () => ua.match(/iphone|ipad|ipod/i),
         windows: () => ua.match(/windows phone/i),
         any: function(){
-            return this.android() || this.ios() || this.windows();
+            return (this.android() || this.ios() || this.windows());
         }
     },
     isDesktop = {
@@ -18,7 +18,7 @@ export default function userDeviceInfo(id){
         mac: ()=> ua.match(/mac os/i),
         windows: ()=> ua.match(/windows nt/),
         any: function(){//cualquier sistema operativo para desktop
-            return this.linux() || this.mac() || this.windows();
+            return (this.linux() || this.mac() || this.windows());
         }
     },
     isBrowser = {

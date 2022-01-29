@@ -7,6 +7,8 @@ import darkTheme from "./tema_oscuro.js";
 import responsiveMedia from "./objeto_responsive.js";
 import responsiveTester from "./prueba_responsive.js";
 import userDeviceInfo from "./deteccion_dispositivos.js";
+import networkStatus from "./deteccion_red.js";
+import webCam from "./deteccion_webcam.js";
 
 const d = document;
 
@@ -36,6 +38,7 @@ d.addEventListener("DOMContentLoaded", e=>{//representa la carga del documento
     responsiveTester("responsive-tester");
 
     userDeviceInfo("user-device");
+    webCam("webcam");
 })
 
 d.addEventListener("keydown", e=>{
@@ -44,4 +47,6 @@ d.addEventListener("keydown", e=>{
 })
 
 darkTheme(".dark-theme-btn","dark-mode");
+
+networkStatus();//conexion de red
 
