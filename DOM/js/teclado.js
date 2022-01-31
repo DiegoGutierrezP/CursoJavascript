@@ -6,9 +6,9 @@ export function moveBall(e,ball,stage){
     const $stage = d.querySelector(stage);
     const limitsBall = $ball.getBoundingClientRect(),
     limitsStage= $stage.getBoundingClientRect();
-    console.log(e.keyCode);
-    console.log(e.key);
-    console.log(limitsBall,limitsStage);
+    //console.log(e.keyCode);
+    //console.log(e.key);
+    //console.log(limitsBall,limitsStage);
 
     // const move = (direction) =>{
     //     $ball.style.transform = `translate(${x*10}px,${y*10}px)`;
