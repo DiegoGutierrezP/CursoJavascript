@@ -12,7 +12,7 @@ export default function getGeolocation(id){
     //funcion en caso de exito
     const success = (position) => {
         let coords = position.coords;
-        console.log(position);
+        //console.log(position);
 
         $id.innerHTML= `<p>
         <ul>

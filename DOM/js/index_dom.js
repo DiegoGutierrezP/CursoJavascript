@@ -14,6 +14,7 @@ import searchFilters from "./filtro_busqueda.js";
 import draw from "./sorteo.js";
 import slider from "./carrusel.js";
 import scrollSpy from "./scroll_espia.js";
+import smartVideo from "./video_inteligente.js";
 
 const d = document;
 
@@ -52,6 +53,8 @@ d.addEventListener("DOMContentLoaded", e=>{//representa la carga del documento
     slider();
 
     scrollSpy();
+
+    smartVideo();
 })
 
 d.addEventListener("keydown", e=>{
