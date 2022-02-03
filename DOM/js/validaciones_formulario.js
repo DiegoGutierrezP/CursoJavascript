@@ -4,7 +4,7 @@ const d = document;
 export default function contactFormValidations(){
     const $form = d.querySelector(".contact-form"),
     $inputs = d.querySelectorAll(".contact-form [required]");//todos los elementos q tengan el attr required
-    console.log($inputs);
+    //console.log($inputs);
 
     $inputs.forEach(input =>{
         const $span = d.createElement("span");
@@ -33,6 +33,24 @@ export default function contactFormValidations(){
                     :d.getElementById($input.name).classList.remove("is-active");
             }
         }
+    });
+
+    d.addEventListener("submit", e =>{
+        //e.preventDefault();
+        alert("enviando formulario");
+
+        const $loader = d.querySelector(".contact-form-loader"),//loader
+        $response = d.querySelector(".contact-form-response");//los datos han sido enviado correctamente
+
+        $loader.classList.remove("none");
+        setTimeout(()=>{
+            $loader.classList.add("none");
+            $response.classList.remove("none")
+            $form.reset();
+            setTimeout(()=>{
+                $response.classList.add("none")
+            },3000)
+        },3000)
     });
 
 }

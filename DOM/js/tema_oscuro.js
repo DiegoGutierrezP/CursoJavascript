@@ -38,7 +38,7 @@ export default  function darkTheme(btn, classDark){
 
     d.addEventListener("DOMContentLoaded", (e) =>{
         //api localstorage : me permite almacenar valores en los navegadores
-        console.log(ls.getItem("theme"))
+        //console.log(ls.getItem("theme"))
         if(ls.getItem("theme") === null){
             ls.setItem("theme","light");
         }
