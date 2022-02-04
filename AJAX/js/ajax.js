@@ -128,7 +128,7 @@
         $axios.appendChild($fragment);
     })
     .catch(err =>{
-        console.log("Estamos en el catch axios",err.response);
+        //console.log("Estamos en el catch axios",err.response);
         let message = err.response.statusText || "Ocurrio un error";
         $axios.innerHTML = `Error ${err.response.status}: ${message}`;
     })
@@ -136,5 +136,35 @@
         console.log("Esto se ejecutara independiente del resultado del axios");
     });
 
+})();
+
+//AXIOS + Async Await------------------------------------------------------------
+(()=>{
+    const $axiosAsync = document.getElementById("axios-async"),
+    $fragment = document.createDocumentFragment();
+
+    async function getData(){
+        try{
+            let res = await axios.get("https://jsonplaceholder.typicode.com/users"),
+            json = await res.data;
+
+            json.forEach(el =>{
+                const $li = document.createElement("li");
+                $li.innerHTML = `${el.name} -- ${el.email} -- ${el.phone}`;
+                $fragment.appendChild($li);
+            });
+            $axiosAsync.appendChild($fragment);
+
+            //console.log(json);
+        }catch(err){
+            console.log("Estamos en el catch axiosAsync",err.response);
+            let message = err.response.statusText || "Ocurrio un error";
+            $axiosAsync.innerHTML = `Error ${err.response.status}: ${message}`;
+        }finally{
+
+        }
+    }
+
+    getData();
 })();
 
