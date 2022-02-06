@@ -24,6 +24,21 @@
       "id": 5,
       "nombre": "Ikki",
       "constelacion": "Fenix"
+    },
+    {
+      "nombre": "Muma",
+      "constelacion": "Ariesa",
+      "id": 6
+    },
+    {
+      "nombre": "aldebaran",
+      "constelacion": "tauro",
+      "id": 7
+    },
+    {
+      "nombre": "mascara de muerte",
+      "constelacion": "cancer",
+      "id": 8
     }
   ],
   "dioses": [
