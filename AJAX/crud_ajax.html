@@ -110,6 +110,7 @@
 
     d.addEventListener("DOMContentLoaded",getAll);
 
+    //Cuando presiona el boton submit del formulario
     d.addEventListener("submit",e=>{
         if(e.target === $form){
             e.preventDefault();
@@ -149,6 +150,7 @@
         }
     });
 
+    //Cuado presiona el boton de editar o eliminar
     d.addEventListener("click",(e)=>{
         if(e.target.matches('.edit')){
             //alert("Presionaste el boton de editar");
