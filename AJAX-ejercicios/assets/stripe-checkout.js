@@ -1,4 +1,5 @@
 
+import stripeKeys from "./stripe-keys.js";
 import STRIPE_KEYS from "./stripe-keys.js";
 
 //console.log(STRIPE_KEYS);
@@ -15,6 +16,8 @@ fetchOptions = {
 
 
 let products,prices;
+
+const moneyFormat = num => `S/.${num.slice(0,-2)}.${num.slice(-2)}`;
 
 Promise.all([//el metodo all recibe cauntas peticiones le mandemos-espera a q le respondan
     fetch("https://api.stripe.com/v1/products",fetchOptions),
@@ -37,7 +40,7 @@ Promise.all([//el metodo all recibe cauntas peticiones le mandemos-espera a q le
         $template.querySelector("figcaption").innerHTML = `
             ${productData[0].name}
             <br>
-            ${el.unit_amount_decimal} ${el.currency}
+            ${moneyFormat(el.unit_amount_decimal)} ${el.currency}
         `
 
         let $clone = d.importNode($template,true);
@@ -52,6 +55,26 @@ Promise.all([//el metodo all recibe cauntas peticiones le mandemos-espera a q le
     $productos.innerHTML = `<p>Error ${err.status} : ${message}</p>`;
 })
 
+
+d.addEventListener("click", e =>{
+    //console.log(e.target);
+    if(e.target.matches(".product *")){
+        let price = e.target.parentElement.getAttribute("data-price");
+        //console.log(price);
+        Stripe(STRIPE_KEYS.public).redirectToCheckout({
+            lineItems:[{price:price,quantity:1}],
+            mode : "subscription",
+            successUrl: "http://127.0.0.1:5500/AJAX-ejercicios/assets/stripe-success.html",
+            cancelUrl:"http://127.0.0.1:5500/AJAX-ejercicios/assets/stripe-cancel.html",
+        })
+        .then(res => {
+            if(res.error){
+                console.log(res);
+                $productos.insertAdjacentHTML("afterend",res.error.message);
+            }
+        })
+    }
+})
 
 /* fetch("https://api.stripe.com/v1/products",{
     headers:{
