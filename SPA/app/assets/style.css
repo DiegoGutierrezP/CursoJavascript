@@ -36,6 +36,13 @@ img{
     color: #fff;
     background-color: red;
 }
+.error mark{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    display: inline-block;
+    color: #fff;
+    background-color: #01579b;
+}
 .loader{
     margin: 1rem auto;
     display: block;
@@ -118,3 +125,4 @@ img{
     display: block;
     max-width: 100%;
 }
+
