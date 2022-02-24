@@ -3,6 +3,7 @@ import {ajax} from "../helpers/ajax.js";
 import { PostCard } from "./PostCard.js";
 import { Post } from "./Post.js";
 import { SearchCard } from "./SearchCard.js";
+import { ContactForm } from "./ContactForm.js";
 
 export async function Router(){
     const d = document,w=window,
@@ -56,7 +57,8 @@ export async function Router(){
         
         
     }else if(hash === "#/contacto"){
-        $main.innerHTML = "<h2>Seccion del Contacto</h2>"
+       
+        $main.appendChild(ContactForm()); 
         
     }else{
         await ajax({
